@@ -5,7 +5,7 @@
   
   Chart.register(CategoryScale);
   Chart.register(LinearScale, BarElement);
-  const ChartComponent = () => {
+  const ChartCircuits = () => {
     const [chartData, setChartData] = useState(null);
   
     useEffect(() => {
@@ -55,5 +55,5 @@
     );
   };
   
-  export default ChartComponent;
+  export default ChartCircuits;
   
