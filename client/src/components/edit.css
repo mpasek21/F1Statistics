@@ -1,0 +1,18 @@
+.edit-container{
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.edit-button {
+    padding: 8px 16px;
+    background-color: #ff1801;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .edit-button:hover {
+    background-color: #FF1801;
+  }

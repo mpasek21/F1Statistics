@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { DOMParser } from 'xmldom';
-
+import "./searchdriver.css";
 const SearchDrivers = () => {
   const [familyName, setFamilyName] = useState('');
   const [driverData, setDriverData] = useState(null);
@@ -34,37 +34,35 @@ const SearchDrivers = () => {
   };
 
   return (
-    <div>
-      <h1>Drivers Database</h1>
-      <div>
+    <div className='search-container'>
+      <h3>Drivers Database</h3>
+      <div className='search-input-container'>
         <input
           type="text"
           value={familyName}
           onChange={e => setFamilyName(e.target.value)}
           placeholder="Enter Surname"
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch} className='search-button'>Search</button>
       </div>
       {driverData && driverData.length > 0 ? (
-        <div>
-          <h2>Driver Information</h2>
+        <div className="driver-list">
           {driverData.map((driver, index) => (
-            <div key={index}>
+            <div className="driver-card" key={index}>
               <p>First Name: {driver.givenName}</p>
               <p>Surname: {driver.familyName}</p>
               <p>Date of Birth: {driver.dateOfBirth}</p>
               <p>Nationality: {driver.nationality}</p>
-              <hr />
+              
             </div>
           ))}
         </div>
       ) : (
-        <p>No drivers found.</p>
+        <p style={{marginTop: 15}}>No drivers found.</p>
       )}
     </div>
   );
 };
 
 export default SearchDrivers;
-
 

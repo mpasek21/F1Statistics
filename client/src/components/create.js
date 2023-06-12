@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
-
+import "./create.css";
 export default function Create() {
     const [form, setForm] = useState({
         circuidId: "", name: "", location: "", country: "",
@@ -21,22 +21,19 @@ export default function Create() {
         // When a post request is sent to the create url, we'll add a new record to the database.
         const newTrack = {...form};
 
-        await fetch("http://localhost:5050/record", {
+        await fetch("http://localhost:5050/api/users/create", {
             method: "POST", headers: {
                 "Content-Type": "application/json",
             }, body: JSON.stringify(newTrack),
         })
             .catch(error => {
                 window.alert(error);
-
             });
-
         setForm({circuidId: "", name: "", location: "", country: ""});
-        navigate("/");
+        navigate("/list");
     }
 
-    // This following section will display the form that takes the input from the user.
-    return (<div>
+    return (<div className="create-container">
         <h3>Create New Record</h3>
         <form onSubmit={onSubmit}>
             <div className="form-group">
@@ -69,12 +66,11 @@ export default function Create() {
                     onChange={(e) => updateForm({country: e.target.value})}
                 />
             </div>
-       
             <div className="form-group">
                 <input
                     type="submit"
                     value="Add track"
-                    className="btn btn-primary"
+                    className="add-button"
                 />
             </div>
         </form>

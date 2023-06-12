@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-
+import "./recordList.css";
 
 const Record = (props) => (
     <tr>
@@ -12,7 +12,9 @@ const Record = (props) => (
             <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
             <button className="btn btn-link"
                     onClick={() => {
+                        if (window.confirm("Are you sure you want to delete this track?")){
                         props.deleteRecord(props.record._id);
+                        }
                     }}
             >
                 Delete
@@ -27,7 +29,7 @@ export default function RecordList() {
     // This method fetches the records from the database.
     useEffect(() => {
         async function getRecords() {
-            const response = await fetch(`http://localhost:5050/record/`);
+            const response = await fetch(`http://localhost:5050/api/users/list`);
 
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -46,7 +48,7 @@ export default function RecordList() {
 
     // This method will delete a record
     async function deleteRecord(id) {
-        await fetch(`http://localhost:5050/record/${id}`, {
+        await fetch(`http://localhost:5050/api/users/${id}`, {
             method: "DELETE"
         });
 
@@ -69,9 +71,9 @@ export default function RecordList() {
 
     // This following section will display the table with the records of individuals.
     return (
-        <div>
-            <h3>Record List</h3>
-            <table className="table table-striped" style={{marginTop: 20}}>
+        <div classname="records-container">
+            <h3 style={{marginLeft: 15, marginTop: 5}}>Record List</h3>
+            <table className="table table-striped" style={{marginTop: 15, marginLeft: 15}}>
                 <thead>
                 <tr>
                     <th>ID</th>

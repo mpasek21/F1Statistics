@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router";
-
+import "./edit.css";
 export default function Edit() {
     const [form, setForm] = useState({
         name: "",
@@ -13,7 +13,7 @@ export default function Edit() {
 
     async function fetchData() {
         const id = params.id.toString();
-        const response = await fetch(`http://localhost:5050/record/${params.id.toString()}`);
+        const response = await fetch(`http://localhost:5050/api/users/${params.id.toString()}`);
 
         if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -61,7 +61,7 @@ export default function Edit() {
         console.log(editedPerson);
 
         // This will send a post request to update the data in the database.
-        await fetch(`http://localhost:5050/record/${params.id}`, {
+        await fetch(`http://localhost:5050/api/users/${params.id}`, {
             method: "PATCH",
             body: JSON.stringify(editedPerson),
             headers: {
@@ -73,7 +73,7 @@ export default function Edit() {
     }
 
     // This following section will display the form that takes input from the user to update the data.
-    return (<div>
+    return (<div className="edit-container">
         <h3>Create New Record</h3>
         <form onSubmit={onSubmit}>
             <div className="form-group">
@@ -87,7 +87,7 @@ export default function Edit() {
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="location">Position</label>
+                <label htmlFor="location">Location</label>
                 <input
                     type="text"
                     className="form-control"
@@ -109,8 +109,8 @@ export default function Edit() {
             <div className="form-group">
                 <input
                     type="submit"
-                    value="Add track"
-                    className="btn btn-primary"
+                    value="Edit track"
+                    className="edit-button"
                 />
             </div>
         </form>
