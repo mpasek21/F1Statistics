@@ -2,12 +2,39 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {DOMParser} from 'xmldom';
 import {Pie} from 'react-chartjs-2';
+import { Card } from 'react-bootstrap';
 import {ArcElement, Chart, Legend, Tooltip} from 'chart.js';
 import './drivers.css';
 import {json2xml} from "xml-js";
+import Hamilton from './drivers/Hamilton.png';
+import Albon from './drivers/Albon.png';
+import Alonso from './drivers/Alonso.png';
+import Bottas from './drivers/Bottas.png';
+import deVries from './drivers/de Vries.png';
+import Gasly from './drivers/Gasly.png';
+import Hülkenberg from './drivers/Hülkenberg.png';
+import Leclerc from './drivers/Leclerc.png';
+import Magnussen from './drivers/Magnussen.png';
+import Norris from './drivers/Norris.png';
+import Ocon from './drivers/Ocon.png';
+import Pérez from './drivers/Pérez.png';
+import Piastri from './drivers/Piastri.png';
+import Russell from './drivers/Russell.png';
+import Sainz from './drivers/Sainz.png';
+import Sargeant from './drivers/Sargeant.png';
+import Stroll from './drivers/Stroll.png';
+import Tsunoda from './drivers/Tsunoda.png';
+import Verstappen from './drivers/Verstappen.png';
+import Zhou from './drivers/Zhou.png';
+
+
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 Chart.register(ArcElement, Legend, Tooltip);
+
+const driverImages = {
+    Albon, Hamilton, Alonso, Bottas, deVries, Gasly, Hülkenberg, Leclerc, Magnussen, Norris, Ocon, Pérez, Piastri, Russell, Sainz, Sargeant, Stroll, Tsunoda, Verstappen, Zhou
+  };
 
 const Drivers = () => {
     const [drivers, setDrivers] = useState([]);
@@ -74,19 +101,28 @@ const Drivers = () => {
         <div className="drivers-container">
             <div className="drivers-list">
                 <h3>F1 Drivers in 2023 Season</h3>
-                <ul>
+                <div className="card-container">
                     {drivers.map(driver => (
-                        <li key={driver.driverId}>
-                            {driver.givenName} {driver.familyName} - {driver.nationality}
-                        </li>
+                         <Card key={driver.driverId} style={{ width: '18rem' }}>
+                         
+                         <Card.Img variant="top" src={driverImages[driver.familyName.replace(' ', '')]} />
+                         <Card.Body>
+                           <Card.Title>{`${driver.givenName} ${driver.familyName}`}</Card.Title>
+                           <Card.Text>
+                             Nationality: {driver.nationality}
+                           </Card.Text>
+                         </Card.Body>
+                       </Card>
                     ))}
-                </ul>
+                </div>
+                <div className="buttons-container">
                 <button onClick={ExportJSON} className='export-button'>
                     JSON
                 </button>
                 <button onClick={ExportXML} className='export-button' style={{marginLeft: 15}}>
                     XML
                 </button>
+                </div>
             </div>
             <div className="chart-container">
                 <Pie
