@@ -1,20 +1,4 @@
-.drivers-container {
-    display: inline-flex;
-    padding: 40px;
-  }
-  
-  .drivers-list {
-    flex: 1;
-    padding-right: 20px;
-  }
-  
-  .chart-container {
-    width: 50%;
-    margin: 20px 80px;
-    margin-top: 20px;
-  }
-
-  .export-button {
+.export-button {
     padding: 8px 16px;
     background-color: #ff0000;
     color: white;
@@ -22,8 +6,44 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    
   }
   
   .export-button:hover {
     background-color: #ff0000;
+  }
+
+  .drivers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .drivers-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    align-items: center;
   }
