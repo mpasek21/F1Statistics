@@ -55,6 +55,8 @@ const Drivers = () => {
                     givenName: driver.getElementsByTagName('GivenName')[0].textContent,
                     familyName: driver.getElementsByTagName('FamilyName')[0].textContent,
                     nationality: driver.getElementsByTagName('Nationality')[0].textContent,
+                    permanentNumber: driver.getElementsByTagName('PermanentNumber')[0].textContent,
+                    dateOfBirth: driver.getElementsByTagName('DateOfBirth')[0].textContent,
                 }));
 
                 setDrivers(formattedDrivers);
@@ -104,12 +106,13 @@ const Drivers = () => {
                 <div className="card-container">
                     {drivers.map(driver => (
                          <Card key={driver.driverId} style={{ width: '18rem' }}>
-                         
-                         <Card.Img variant="top" src={driverImages[driver.familyName.replace(' ', '')]} />
+                         <Card.Img className= 'card-img-top' variant="top" src={driverImages[driver.familyName.replace(' ', '')]}/>
                          <Card.Body>
-                           <Card.Title>{`${driver.givenName} ${driver.familyName}`}</Card.Title>
+                           <Card.Title className='driver-name'>{`${driver.givenName} ${driver.familyName}`}</Card.Title>
                            <Card.Text>
-                             Nationality: {driver.nationality}
+                             Nationality: {driver.nationality} <br></br>
+                             Date of birth: {driver.dateOfBirth} <br></br>
+                             Racing number: {driver.permanentNumber}
                            </Card.Text>
                          </Card.Body>
                        </Card>
