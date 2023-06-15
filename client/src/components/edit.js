@@ -43,7 +43,6 @@ export default function Edit() {
         fetchData();
     }, []);
 
-    // These methods will update the state properties.
     function updateForm(value) {
         return setForm((prev) => {
             return {...prev, ...value};
@@ -60,7 +59,6 @@ export default function Edit() {
 
         console.log(editedPerson);
 
-        // This will send a post request to update the data in the database.
         await fetch(`http://localhost:5050/api/users/${params.id}`, {
             method: "PATCH",
             body: JSON.stringify(editedPerson),
@@ -69,10 +67,9 @@ export default function Edit() {
             },
         });
 
-         navigate("/");
+         navigate("/list");
     }
 
-    // This following section will display the form that takes input from the user to update the data.
     return (<div className="edit-container">
         <h3>Create New Record</h3>
         <form onSubmit={onSubmit}>
