@@ -1,21 +1,4 @@
-/*import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 
-const Main = () => {
-  return (
-    <div className="container">
-      <h1>To jest podstrona testowa</h1>
-      <p>Tutaj znajduje się jakiś tekst.</p>
-      <button className="btn btn-primary">Przycisk Bootstrapa</button>
-      <div className="alert alert-info mt-3" role="alert">
-        To jest alert Bootstrapa!
-      </div>
-    </div>
-  );
-};
-
-export default Main;
-*/
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'bootstrap/dist/js/bootstrap.min.js';
@@ -23,15 +6,13 @@ import { Link } from 'react-router-dom';
 import "./main.css"
 const Main = () => {
   useEffect(() => {
-    // Inicjalizacja karuzeli po załadowaniu komponentu
     const carousel = document.querySelector('#carouselExampleSlidesOnly');
     const bsCarousel = new Carousel(carousel, {
-      interval: 5000, // Czas trwania dla każdego slajdu (ms)
-      ride: true, // Automatyczne przewijanie slajdów
+      interval: 5000, 
+      ride: true, 
     });
 
     return () => {
-      // Zatrzymaj karuzelę po odmontowaniu komponentu
       bsCarousel.dispose();
     };
   }, []);
@@ -62,8 +43,6 @@ const Main = () => {
           </div>
         </div>
       </div>
-
-
             <div className="row mt-4">
                 <div className="col-md-6">
                     <div className="card">

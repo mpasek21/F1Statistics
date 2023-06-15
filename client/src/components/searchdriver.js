@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { DOMParser } from 'xmldom';
 import "./searchdriver.css";
+import { Card } from 'react-bootstrap';
 const SearchDrivers = () => {
   const [familyName, setFamilyName] = useState('');
   const [driverData, setDriverData] = useState(null);
@@ -48,13 +49,15 @@ const SearchDrivers = () => {
       {driverData && driverData.length > 0 ? (
         <div className="driver-list">
           {driverData.map((driver, index) => (
-            <div className="driver-card" key={index}>
-              <p>First Name: {driver.givenName}</p>
-              <p>Surname: {driver.familyName}</p>
-              <p>Date of Birth: {driver.dateOfBirth}</p>
-              <p>Nationality: {driver.nationality}</p>
-              
-            </div>
+            <Card key={index} className="driver-card">
+            <Card.Body>
+              <Card.Title>{driver.givenName} {driver.familyName}</Card.Title>
+              <Card.Text>
+                <p>Date of Birth: {driver.dateOfBirth}</p>
+                <p>Nationality: {driver.nationality}</p>
+              </Card.Text>
+            </Card.Body>
+          </Card>
           ))}
         </div>
       ) : (

@@ -1,72 +1,13 @@
-.export-button {
-    padding: 8px 16px;
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    
-  }
-  
-  .export-button:hover {
-    background-color: #ff0000;
-  }
-
- 
-  
-  .drivers-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    padding: 50px;
-  }
-  
-  .card-container {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .chart-container {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    align-items: center;
-    margin-left: 450px;
-  }
-
-  .driver-name{
-    font-weight: bolder;
-  }
-
-  .card-img-top {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card-img-top:hover {
-    transform: scale(1.1);
-  }
-  .driver-table {
+.driver-table-2 {
     list-style-type: none;
     padding: 0;
   }
   
-  .driver-table li {
+  .driver-table-2 li {
     padding: 10px;
   }
   
-  .driver-table li.even {
+  .driver-table-2 li.even {
     background-color: #f8f8f8;
   }
   
@@ -88,7 +29,9 @@
     font-weight: bold;
   }
   
- 
+  .chart-container-2 {
+    margin-top: 50px;
+  }
   .container {
     margin-top: 50px;
   }
@@ -132,7 +75,7 @@
     margin-top: 10px;
   }
   .chart-selection {
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
   }
@@ -140,4 +83,3 @@
   .chart-selection button {
     margin-right: 10px;
   }
-  
